@@ -5,9 +5,20 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'courses', //<courses>
   template: `
-    <button [style.backgroundColor]="isActive ? 'blue':'white'">SAVE</button>
+  <div (click)="onDivClicked()">
+    <button (click)="onSave($event)"> Save </button>
+    </div>
   `,
 })
 export class CoursesComponent {
-  isActive = false;
+
+  //this is event bubling
+  onDivClicked(){
+    console.log("diw as clicked")
+  }
+  onSave($event) {
+    $event.stopPropagation();
+    
+    console.log("button was clicked",$event);
+  }
 }
