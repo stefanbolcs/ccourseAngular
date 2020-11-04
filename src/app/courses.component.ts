@@ -5,20 +5,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'courses', //<courses>
   template: `
-  <div (click)="onDivClicked()">
-    <button (click)="onSave($event)"> Save </button>
-    </div>
+  <input #email (keyup.enter)="onKeyUp(email.value)" />
   `,
 })
 export class CoursesComponent {
 
-  //this is event bubling
-  onDivClicked(){
-    console.log("diw as clicked")
+  onKeyUp(email){
+   console.log(email);
   }
-  onSave($event) {
-    $event.stopPropagation();
-    
-    console.log("button was clicked",$event);
-  }
+  
 }
